@@ -1,23 +1,33 @@
+import React from "react";
 import { useQuery } from "react-query";
 import axios from "axios";
+
+const fetchUsers = () => {
+  return axios.get("http://localhost:5000/users");
+};
 const RQpage = () => {
-  const fetchUsers = () => {
-    console.log("fetching");
-    return axios.get("http://localhost:5000/users");
+  const onSuccess = () => {
+    console.log("data fetched successfully.");
   };
-  const { isLoading, data, isError, error } = useQuery("users", fetchUsers);
+  const { data, isLoading, isFetching } = useQuery("usersData", fetchUsers, {
+    onSuccess: onSuccess,
+    select: (data) => {
+      return data.data.filter((user) => user.city === "dhaka");
+    },
+  });
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <h2>Loading...</h2>;
   }
-  console.log(isError && error.message);
+
+  console.log(isFetching);
   return (
     <div>
-      <h1>Users</h1>
-      {data?.data.map((users) => {
+      {data?.map((user) => {
         return (
-          <div key={users.id}>
-            <h4>{users.name}</h4>
+          <div key={user.id}>
+            <h2>{user.name}</h2>
+            <h3>{user.email}</h3>
           </div>
         );
       })}
