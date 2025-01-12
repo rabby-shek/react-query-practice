@@ -1,20 +1,11 @@
 import React from "react";
 import { useQuery } from "react-query";
 import axios from "axios";
+import useUsersData from "../hooks/useUsersData";
+import { NavLink } from "react-router-dom";
 
-const fetchUsers = () => {
-  return axios.get("http://localhost:5000/users");
-};
 const RQpage = () => {
-  const onSuccess = () => {
-    console.log("data fetched successfully.");
-  };
-  const { data, isLoading, isFetching } = useQuery("usersData", fetchUsers, {
-    onSuccess: onSuccess,
-    select: (data) => {
-      return data.data.filter((user) => user.city === "dhaka");
-    },
-  });
+  const { data, isLoading, isFetching } = useUsersData();
 
   if (isLoading) {
     return <h2>Loading...</h2>;
@@ -23,11 +14,11 @@ const RQpage = () => {
   console.log(isFetching);
   return (
     <div>
-      {data?.map((user) => {
+
+      {data?.data.map((user) => {
         return (
           <div key={user.id}>
-            <h2>{user.name}</h2>
-            <h3>{user.email}</h3>
+            <NavLink to={`/details/${user.id}`}>{user.name}</NavLink>
           </div>
         );
       })}
