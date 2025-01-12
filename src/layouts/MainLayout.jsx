@@ -1,8 +1,12 @@
 
-import { Outlet } from 'react-router-dom'
+import { NavLink, Outlet } from 'react-router-dom'
 const MainLayout = () => {
   return (
     <div>
+      <nav>
+        <NavLink to='/'>Home</NavLink>
+        <NavLink to='/rq'>React Query</NavLink>
+      </nav>
       <Outlet />
     </div>
   )
