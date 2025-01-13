@@ -8,7 +8,7 @@
     },
     {
       "id": 2,
-      "name": "Jane ",
+      "name": "Jane 2 ",
       "email": "jane@example.com",
       "city": "chittagong"
     },
@@ -21,8 +21,17 @@
     {
       "id": 4,
       "name": "Jane 3",
-      "email": "jane@example.com",
-      "city": "khulna"
+      "email": "jane@example.com"
     }
+  ],
+  "friends": [
+    {
+      "id": 1,
+      "name": "John"
+    },
+    {
+      "id": 2,
+      "name": "Jane"
+      }
   ]
 }
