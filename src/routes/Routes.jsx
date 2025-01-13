@@ -3,6 +3,8 @@ import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/Home";
 import RQpage from "../pages/RQpage";
 import Details from "../pages/Details";
+import Login from "../pages/Login";
+import ProtectedRoutes from "./ProtectedRoutes";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -10,7 +12,11 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />,
+        element: <ProtectedRoutes><Home /></ProtectedRoutes>,
+      },
+      {
+        path: "/login",
+        element: <Login />,
       },
       {
         path: "/rq",

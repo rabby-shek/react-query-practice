@@ -3,35 +3,20 @@
     {
       "id": 1,
       "name": "John",
-      "email": "john@example.com",
-      "city": "dhaka"
+      "username": "john@example.com",
+      "city": "dhaka",
+      "password": "12345678",
+      "token": "authenticated-user"
     },
     {
       "id": 2,
-      "name": "Jane 2 ",
-      "email": "jane@example.com",
-      "city": "chittagong"
-    },
-    {
-      "id": 3,
-      "name": "Jane 2",
-      "email": "jane@example.com",
-      "city": "chittagong"
-    },
-    {
-      "id": 4,
-      "name": "Jane 3",
-      "email": "jane@example.com"
+      "name": "Jane",
+      "username": "jane@example.com",
+      "city": "chittagong",
+      "password": "12345678",
+      "token": "authenticated-user"
     }
+
   ],
-  "friends": [
-    {
-      "id": 1,
-      "name": "John"
-    },
-    {
-      "id": 2,
-      "name": "Jane"
-      }
-  ]
+  "login": []
 }
