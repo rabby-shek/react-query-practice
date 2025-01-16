@@ -1,18 +1,21 @@
-import axios from "axios";
 import React from "react";
-import { useQuery } from "react-query";
-
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+const fetchUsers = async () => {
+  const response = await axios.get("");
+  return response.data;
+};
 const RQpage = () => {
   const { data } = useQuery({
     queryKey: ["users"],
-    queryFn: async () => {
-      return await axios.get("http://localhost:8000/users");
-    },
+    queryFn: fetchUsers,
   });
-
-  console.log(data);
-
-  return <div>aas</div>;
+  console.log(data.data);
+  return (
+    <div>
+    
+    </div>
+  );
 };
 
 export default RQpage;
